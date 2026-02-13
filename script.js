@@ -284,38 +284,8 @@ const observer = new IntersectionObserver((entries) => {
 
 animElements.forEach(el => observer.observe(el));
 
-// ============ COUNTDOWN ============
-function updateCountdown() {
-    const now = new Date();
-    let valentine = new Date(now.getFullYear(), 1, 14); // Feb 14
-    if (now > valentine) {
-        // If past Valentine's Day this year, count to next year
-        valentine = new Date(now.getFullYear() + 1, 1, 14);
-    }
-    const diff = valentine - now;
-
-    if (diff <= 0) {
-        document.getElementById('cd-days').textContent = '00';
-        document.getElementById('cd-hours').textContent = '00';
-        document.getElementById('cd-mins').textContent = '00';
-        document.getElementById('cd-secs').textContent = '00';
-        document.querySelector('.countdown-title').textContent = "It's Valentine's Day!";
-        return;
-    }
-
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-    const mins = Math.floor((diff / (1000 * 60)) % 60);
-    const secs = Math.floor((diff / 1000) % 60);
-
-    document.getElementById('cd-days').textContent = String(days).padStart(2, '0');
-    document.getElementById('cd-hours').textContent = String(hours).padStart(2, '0');
-    document.getElementById('cd-mins').textContent = String(mins).padStart(2, '0');
-    document.getElementById('cd-secs').textContent = String(secs).padStart(2, '0');
-}
-
-updateCountdown();
-setInterval(updateCountdown, 1000);
+// ============ VALENTINE'S DAY! ============
+// No countdown needed — today is Valentine's Day! 🎉
 
 // ============ HEART BURST ============
 function triggerBurst() {
@@ -345,3 +315,4 @@ function triggerBurst() {
 for (let i = 0; i < 5; i++) {
     setTimeout(spawnFloatingHeart, i * 400);
 }
+
